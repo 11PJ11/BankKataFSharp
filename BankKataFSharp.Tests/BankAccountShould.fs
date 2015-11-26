@@ -5,7 +5,7 @@
     open NSubstitute
 
     let statementPrinter = Substitute.For<IStatementPrinter>()
-    let transactions = new Transactions([])
+    let transactions = Transactions([])
     let bankAccount = BankAccount(statementPrinter, transactions)
 
     [<Test>]

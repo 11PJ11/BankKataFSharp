@@ -2,24 +2,35 @@
 
     open System
 
-
     type Amount = Amount of int
 
-    type Transaction = 
-        | Credit of DateTime * Amount
-        | Debit of DateTime * Amount
+
+    type Transaction = {date: DateTime; amount: Amount}
+
 
     type Transactions(transactions: Transaction list) =
         let _transactions = transactions
+
+
+    type IDisplay =
+        abstract member Show: string -> Unit 
+
 
     type IStatementPrinter =
         abstract member PrintHeader: Unit -> Unit
         abstract member Print: Transactions -> Unit
 
-    type StatementPrinter() =
+
+    type StatementPrinter(display: IDisplay) =
+        let HEADER = "DATE | AMOUNT | BALANCE"
+        let _display = display
+
         interface IStatementPrinter with
-            member x.PrintHeader() = ()
-            member x.Print transactions = ()
+            member x.PrintHeader () = 
+                _display.Show HEADER
+
+            member x.Print (transactions) = ()
+
 
     type BankAccount(statementPrinter: IStatementPrinter,
                      transactions: Transactions) =
@@ -34,5 +45,3 @@
             statementPrinter.Print _transactions
             
 
-    type IDisplay =
-        abstract member Show: string -> Unit 

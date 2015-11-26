@@ -50,8 +50,8 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="BankAccountAcceptance.fs" />
-    <Compile Include="BankAccountShould.fs" />
     <Compile Include="StatementPrinterShould.fs" />
+    <Compile Include="BankAccountShould.fs" />
     <Content Include="packages.config" />
     <Compile Include="FsCheckAddin.fs" />
     <Content Include="app.config" />
