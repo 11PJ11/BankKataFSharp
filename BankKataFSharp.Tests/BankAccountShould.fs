@@ -5,8 +5,14 @@
     open NSubstitute
 
     let statementPrinter = Substitute.For<IStatementPrinter>()
-    let transactions = Transactions([])
+    let transactions = Substitute.For<ITransactions>()
     let bankAccount = BankAccount(statementPrinter, transactions)
+
+    [<Test>]
+    let ``store a deposit`` () =
+        bankAccount.deposit 100
+
+        transactions.Received().Add(Arg.Any<Transaction>())
 
     [<Test>]
     let ``print the header`` () =
@@ -19,4 +25,4 @@
     let ``print the transactions`` () =
         bankAccount.printStatement
 
-        statementPrinter.Received().Print(Arg.Any<Transactions>())
+        statementPrinter.Received().Print(Arg.Any<ITransactions>())
