@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BankKataFSharp.Source", "BankKataFSharp.Source\BankKataFSharp.Source.fsproj", "{8461ECF1-898B-4B3B-9C0A-2A75B55F4F33}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BankKataFSharp.Tests", "BankKataFSharp.Tests\BankKataFSharp.Tests.fsproj", "{8689820D-4389-46BE-ACB1-EA7FEC66D3A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B12585B3-F23B-43A7-A6A1-F62605F4D24D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8461ECF1-898B-4B3B-9C0A-2A75B55F4F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8461ECF1-898B-4B3B-9C0A-2A75B55F4F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8461ECF1-898B-4B3B-9C0A-2A75B55F4F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8461ECF1-898B-4B3B-9C0A-2A75B55F4F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8689820D-4389-46BE-ACB1-EA7FEC66D3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8689820D-4389-46BE-ACB1-EA7FEC66D3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8689820D-4389-46BE-ACB1-EA7FEC66D3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8689820D-4389-46BE-ACB1-EA7FEC66D3A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
