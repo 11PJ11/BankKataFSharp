@@ -6,7 +6,9 @@ module BankAccountAcceptance =
     open NSubstitute
 
     let console = Substitute.For<IDisplay>()
-    let bankAccount = new BankAccount()
+    let statementPrinter = new StatementPrinter()
+    let transactions = new Transactions([])
+    let bankAccount = new BankAccount(statementPrinter, transactions)
 
 
     [<Ignore>][<Test>]
