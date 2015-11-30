@@ -53,6 +53,7 @@
     <Content Include="packages.config" />
     <Compile Include="FsCheckAddin.fs" />
     <Content Include="app.config" />
+    <Compile Include="StatementPrinterShould.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsCheck">
@@ -94,6 +95,10 @@
       <Project>{8461ecf1-898b-4b3b-9c0a-2a75b55f4f33}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <Reference Include="Unquote">
+      <HintPath>..\packages\Unquote.3.1.0\lib\net45\Unquote.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

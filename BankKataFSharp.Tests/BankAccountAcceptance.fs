@@ -9,7 +9,7 @@ module BankAccountAcceptance =
     let clock = Substitute.For<IClock>()
     let console = Substitute.For<IDisplay>()
     let statementPrinter = StatementPrinter console
-    let clockedBankAccount = BankAccount (clock, statementPrinter)
+    let clockedBankAccount = BankAccount clock
 
     [<Test>]
     let ``it outputs the bank statement of the operations``() =
@@ -26,7 +26,7 @@ module BankAccountAcceptance =
             |> deposit 500
 
         bankAccountToBePrinted
-        |> printStatement 
+        |> printStatement statementPrinter 
 
         console.Received().show "DATE | AMOUNT | BALANCE" 
         console.Received().show "10/04/2014 | 500.00 | 1400.00" 
