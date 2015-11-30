@@ -1,45 +1,22 @@
 ﻿namespace BankKataFSharp.Source
 
+module BankAccount = 
     open System
-
-    type Amount = 
-        | Amount of int
-
-    type Transaction = 
-        { date : DateTime
-          amount : Amount }
-
-    type ITransactions = 
-        abstract Add : Transaction -> Unit
-
-    type Transactions(transactions : Transaction list) = 
-        let _transactions = transactions
-        interface ITransactions with
-            member x.Add transaction = ()
+    
+    type IClock =
+        abstract member today: Unit -> DateTime
 
     type IDisplay = 
-        abstract Show : string -> Unit
-
-    type IStatementPrinter = 
-        abstract PrintHeader : Unit -> Unit
-        abstract Print : ITransactions -> Unit
-
-    type StatementPrinter(display : IDisplay) = 
-        let HEADER = "DATE | AMOUNT | BALANCE"
-        let _display = display
-        interface IStatementPrinter with
-            member x.PrintHeader() = _display.Show HEADER
-            member x.Print(transactions) = ()
-
-    type BankAccount(statementPrinter : IStatementPrinter, transactions : ITransactions) = 
-        let _statementPrinter = statementPrinter
-        let _transactions = transactions
+        abstract member show: string -> Unit
     
-        member x.deposit (amount:int) = 
-            _transactions.Add({ date = DateTime.Now
-                                amount = Amount(amount) })
+    type StatementPrinter = 
+        | StatementPrinter of IDisplay
     
-        member x.withdraw amount = ()
-        member x.printStatement = 
-            statementPrinter.PrintHeader()
-            statementPrinter.Print _transactions
+    type BankAccount = 
+        | BankAccount of IClock * StatementPrinter
+    
+    let deposit (amount : int) (account : BankAccount) : BankAccount = account
+
+    let withdraw (amount : int) (account : BankAccount) : BankAccount = account
+
+    let printStatement (account:BankAccount) = ()
