@@ -7,15 +7,23 @@ open BankKataFSharp.Source.BankAccount
 
 let clock = Substitute.For<IClock>()
 let printer = Substitute.For<IStatementPrinter>()
+let bankAccount = BankAccount clock
 
 [<Test>]
-let ``print only the statement header given an empty bank account`` () = 
-    let bankAccount = BankAccount clock
-
+let ``print the statement header`` () = 
     bankAccount 
     |> printStatement printer 
     |> ignore 
 
     printer.Received().printHeader()
+    
+
+[<Test>]
+let ``print statement lines`` () = 
+    bankAccount 
+    |> printStatement printer 
+    |> ignore 
+
+    printer.Received().printStatements(Arg.Any<BankAccount>())
 
 
