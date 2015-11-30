@@ -9,11 +9,17 @@ module BankAccount =
     type IDisplay = 
         abstract member show: string -> Unit
     
+    type IStatementPrinter =
+        abstract member printHeader: Unit -> Unit 
+
     type StatementPrinter(display:IDisplay) =
+        
         let HEADER = "DATE | AMOUNT | BALANCE" 
         let _display = display
-        member x.PrintHeader =
-            _display.show HEADER
+
+        interface IStatementPrinter with
+            member x.printHeader() =
+                _display.show HEADER
     
     type BankAccount = 
         | BankAccount of IClock
@@ -22,5 +28,5 @@ module BankAccount =
 
     let withdraw (amount : int) (account : BankAccount) : BankAccount = account
 
-    let printStatement (printer:StatementPrinter) (account:BankAccount) = 
-        printer.PrintHeader
+    let printStatement (printer:IStatementPrinter) (account:BankAccount) = 
+        printer.printHeader()

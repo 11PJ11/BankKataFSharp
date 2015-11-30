@@ -54,6 +54,7 @@
     <Compile Include="FsCheckAddin.fs" />
     <Content Include="app.config" />
     <Compile Include="StatementPrinterShould.fs" />
+    <Compile Include="BankAccountShould.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsCheck">
