@@ -49,7 +49,9 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="BankAccount.fs" />
+    <Compile Include="Model.fs" />
+    <Compile Include="Infrastracture.fs" />
+    <Compile Include="Actions.fs" />
     <Compile Include="example.fs" />
     <Content Include="packages.config" />
   </ItemGroup>

@@ -49,7 +49,8 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="BankAccountAcceptance.fs" />
+    <Compile Include="Acceptance\BankAccountAcceptance.fs" />
+    <Compile Include="Unit\BankShould.fs" />
     <Content Include="packages.config" />
     <Compile Include="FsCheckAddin.fs" />
     <Content Include="app.config" />
