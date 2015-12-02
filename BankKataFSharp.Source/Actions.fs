@@ -17,8 +17,8 @@ module Actions =
             return ()
         }
 
-    let printStatement (statementPrinter:IStatementPrinter) account = 
-        statementPrinter.printHeader()
-        statementPrinter.print account
+    let printStatement (printer:IStatementPrinter) account = 
+        printer.printHeader()
+        printer.print account
         
        

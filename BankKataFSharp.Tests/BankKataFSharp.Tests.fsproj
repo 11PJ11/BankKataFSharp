@@ -50,11 +50,12 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="Acceptance\BankAccountAcceptance.fs" />
-    <Compile Include="Unit\BankShould.fs" />
+    <Compile Include="Actions\BankShould.fs" />
     <Content Include="packages.config" />
     <Compile Include="FsCheckAddin.fs" />
     <Content Include="app.config" />
     <Compile Include="testExample.fs" />
+    <Compile Include="Infrastructure\StatementPrinterShould.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsCheck">

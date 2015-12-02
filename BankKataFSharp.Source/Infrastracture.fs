@@ -14,8 +14,10 @@ module Infrastructure =
         abstract member print: BankAccount -> Unit
         
     type StatementPrinter(display:IDisplay) =
+        let HEADER = "DATE | AMOUNT | BALANCE"
         let _display = display
 
         interface IStatementPrinter with
-            member x.printHeader() = ()
+            member x.printHeader() = 
+                _display.show HEADER
             member x.print account = ()
